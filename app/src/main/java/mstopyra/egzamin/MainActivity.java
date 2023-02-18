@@ -1,6 +1,50 @@
 package mstopyra.egzamin;
 
 import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import static android.widget.Toast.LENGTH_LONG;
+public class MainActivity extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button button1=(Button)findViewById(R.id.Button01);
+        button1.setOnClickListener(new OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                intent.putExtra("Value1", "Java");
+                intent.putExtra("Value2", "Android");
+                startActivity(intent);
+            }
+        });
+
+        Button button2=(Button)findViewById(R.id.Button02);
+        button2.setOnClickListener(new OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ImgViewerActivity.class);
+                intent.putExtra("Value1", "Java");
+                intent.putExtra("Value2", "Android");
+                startActivity(intent);
+            }
+        });
+    }
+}
+
+/*
+import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -69,3 +113,4 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 }
+ */
