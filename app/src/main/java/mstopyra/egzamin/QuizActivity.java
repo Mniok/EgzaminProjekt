@@ -1,6 +1,7 @@
 package mstopyra.egzamin;
 
 //package jp.android;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,40 +22,47 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import static android.widget.Toast.LENGTH_LONG;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
 
 public class QuizActivity extends Activity {
-    @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        TextView tv=new TextView(this);
-        tv.setText("Second activity");
-        setContentView(R.layout.activity_quiz);
-        Bundle extras = getIntent().getExtras();
-        String value1 = extras.getString("Value1");
-        String value2 = extras.getString("Value2");
-        Toast.makeText(getApplicationContext(),"Value 1: "+ value1 +
-                "\nValue 2: " + value2, LENGTH_LONG).show();
-        Button button1=(Button)findViewById(R.id.Button01);
-        button1.setOnClickListener(new OnClickListener(){
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-}
-
-/*
-public class QuizFragment extends Activity {
     TextView tv1,tv2;
     RadioButton a,b,c,d;
-    Button btn;
+    Button btn, back;
     RadioGroup rg;
     int qnumber,score;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_quiz);
+
+
+        //back
+        back=(Button)findViewById(R.id.ButtonBackToMenu);
+        back.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //quiz
         tv1=(TextView)findViewById(R.id.question);
         tv2=(TextView)findViewById(R.id.response);
         rg=(RadioGroup)findViewById(R.id.optionGroup);
@@ -178,5 +186,26 @@ public class QuizFragment extends Activity {
                 break;
             }
         }
+    }
+}
+
+/*    @Override
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        TextView tv=new TextView(this);
+        tv.setText("Second activity");
+        setContentView(R.layout.activity_quiz);
+        Bundle extras = getIntent().getExtras();
+        String value1 = extras.getString("Value1");
+        String value2 = extras.getString("Value2");
+        Toast.makeText(getApplicationContext(),"Value 1: "+ value1 +
+                "\nValue 2: " + value2, LENGTH_LONG).show();
+        Button button1=(Button)findViewById(R.id.Button01);
+        button1.setOnClickListener(new OnClickListener(){
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }*/

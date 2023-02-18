@@ -25,8 +25,8 @@ public class MainActivity extends Activity {
         button1.setOnClickListener(new OnClickListener(){
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
-                intent.putExtra("Value1", "Java");
-                intent.putExtra("Value2", "Android");
+                //intent.putExtra("Value1", "Java");
+                //intent.putExtra("Value2", "Android");
                 startActivity(intent);
             }
         });
