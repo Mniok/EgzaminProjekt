@@ -29,11 +29,8 @@ public class WebActivity extends AppCompatActivity {
 
         //webview
         WebView myWebView = findViewById(R.id.myWebView);
-        //myWebView.loadUrl("https://developer.android.com/");
         myWebView.loadUrl(WebsiteURL);
         myWebView.getSettings().setJavaScriptEnabled(true);
-        //Thread.sleep(5000);
-        //back.setVisibility(View.GONE); //test for spinner
         myWebView.setWebViewClient(new WebViewClient());
     }
 }

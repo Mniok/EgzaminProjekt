@@ -234,11 +234,10 @@ public class QuizActivity extends Activity {
                 d.setEnabled(false);
                 e.setEnabled(false);
                 f.setEnabled(false);
-                //uncheckAll();
-                rg.clearCheck();
                 if (c.isChecked()){
                     score=score+1;
                 }
+                rg.clearCheck();
                 tv1.setText("");
                 tv2.setText("Wynik testu: " + score + "/7");
                 btn.setText("Restart");

@@ -5,7 +5,7 @@
                 android:layout_height="match_parent"
                 tools:context="mstopyra.egzamin.MainActivity">
     <Button
-            android:id="@+id/Button01"
+            android:id="@+id/ButtonGoToQuiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -13,24 +13,15 @@
             android:layout_marginTop="120dp"
             android:onClick="onClick"
             android:text="Quiz" />
-    <Button
-        android:id="@+id/Button02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
-        android:onClick="onClick"
-        android:text="Przeglądarka obrazów" />
 
     <RelativeLayout
         android:id="@+id/WebButtonAndSpinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="240dp">
+        android:layout_marginTop="180dp">
         <Button
-            android:id="@+id/Button03"
+            android:id="@+id/ButtonGoToWeb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -40,8 +31,8 @@
             android:id="@+id/SelectWebsite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/Button03"/>
+            android:layout_marginTop="12dp"
+            android:layout_toRightOf="@+id/ButtonGoToWeb"/>
     </RelativeLayout>
 
 

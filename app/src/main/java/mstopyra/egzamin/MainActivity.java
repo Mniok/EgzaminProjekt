@@ -19,19 +19,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         //go to quiz
-        Button button1=(Button)findViewById(R.id.Button01);
+        Button button1=(Button)findViewById(R.id.ButtonGoToQuiz);
         button1.setOnClickListener(new OnClickListener(){
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        //go to imgviewer
-        Button button2=(Button)findViewById(R.id.Button02);
-        button2.setOnClickListener(new OnClickListener(){
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ImgViewerActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +37,7 @@ public class MainActivity extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         selectWebsite.setAdapter(adapter);
 
-        Button button3=(Button)findViewById(R.id.Button03);
+        Button button3=(Button)findViewById(R.id.ButtonGoToWeb);
         button3.setOnClickListener(new OnClickListener(){
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), WebActivity.class);
