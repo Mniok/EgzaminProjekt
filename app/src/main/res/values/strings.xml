@@ -13,7 +13,8 @@
     <string-array name="websites_selection">
         <item>https://developer.android.com/</item>
         <item>http://web.prz.edu.pl/</item>
-        <item>https://java.com/pl/</item>
+        <item>http://java.prz.edu.pl/</item>
+        <item>http://weii.prz.edu.pl/</item>
         <item>https://dev.java/learn/getting-started/</item>
     </string-array>
 </resources>

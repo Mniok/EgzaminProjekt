@@ -62,6 +62,22 @@
             android:layout_alignLeft="@+id/option2"
             android:layout_marginLeft="20dp"
             android:text="" />
+        <RadioButton
+            android:id="@+id/option5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/option2"
+            android:layout_alignLeft="@+id/option2"
+            android:layout_marginLeft="20dp"
+            android:text="" />
+        <RadioButton
+            android:id="@+id/option6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/option2"
+            android:layout_alignLeft="@+id/option2"
+            android:layout_marginLeft="20dp"
+            android:text="" />
     </RadioGroup>
     <TextView
         android:id="@+id/response"

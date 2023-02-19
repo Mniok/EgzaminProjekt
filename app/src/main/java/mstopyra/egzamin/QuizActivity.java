@@ -42,7 +42,7 @@ import android.widget.TextView;
 
 public class QuizActivity extends Activity {
     TextView tv1,tv2;
-    RadioButton a,b,c,d;
+    RadioButton a, b, c, d, e, f;
     Button btn, back;
     RadioGroup rg;
     int qnumber,score;
@@ -70,117 +70,177 @@ public class QuizActivity extends Activity {
         b=(RadioButton)findViewById(R.id.option2);
         c=(RadioButton)findViewById(R.id.option3);
         d=(RadioButton)findViewById(R.id.option4);
+        e=(RadioButton)findViewById(R.id.option5);
+        f=(RadioButton)findViewById(R.id.option6);
         btn=(Button)findViewById(R.id.next);
         qnumber=0;
         score=0;
     }
-    public void quiz(View v){
+
+    public void setQuestionContent(String question, String[] answers){
+        tv1.setText(question);
+        a.setVisibility(View.GONE);
+        b.setVisibility(View.GONE);
+        c.setVisibility(View.GONE);
+        d.setVisibility(View.GONE);
+        e.setVisibility(View.GONE);
+        f.setVisibility(View.GONE);
+        switch(answers.length){
+            case 6: {
+                f.setText(answers[5]);
+                f.setVisibility(View.VISIBLE);
+            }
+            case 5: {
+                e.setText(answers[4]);
+                e.setVisibility(View.VISIBLE);
+            }
+            case 4: {
+                d.setText(answers[3]);
+                d.setVisibility(View.VISIBLE);
+            }
+            case 3: {
+                c.setText(answers[2]);
+                c.setVisibility(View.VISIBLE);
+            }
+            case 2: {
+                b.setText(answers[1]);
+                b.setVisibility(View.VISIBLE);
+            }
+            case 1: {
+                a.setText(answers[0]);
+                a.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+    public void quiz(View v){ //onclick btn
         switch (qnumber){
             case 0:
             {
                 rg.setVisibility(View.VISIBLE);
-                a.setChecked(false);
-                b.setChecked(false);
-                c.setChecked(false);
-
-                d.setChecked(false);
+                rg.clearCheck();
                 tv2.setText("");
                 a.setEnabled(true);
                 b.setEnabled(true);
                 c.setEnabled(true);
                 d.setEnabled(true);
+                e.setEnabled(true);
+                f.setEnabled(true);
                 btn.setText("Next");
                 score=0;
-                tv1.setText("1. Pakiet biblioteki Swing ?");
-                a.setText("java.swing");
-                b.setText("java.awt");
-                c.setText("javax.swing");
-                d.setText("javax.awt");
+                setQuestionContent("1. Pakiet biblioteki Swing ?",
+                        new String[] {"java.swing",
+                        "java.awt",
+                        "javax.swing",
+                        "javax.awt"}
+                );
                 qnumber=1;
                 break;
             }
             case 1:
             {
-                tv1.setText("2. Która technologia jest związana z JavaFX ?");
-                a.setText("JSP");
-                b.setText("FXML");
-                c.setText("JSF");
-                d.setText("EJB");
+                setQuestionContent("2. Która technologia jest związana z JavaFX ?",
+                        new String[] {"JSP",
+                        "FXML",
+                        "JSF",
+                        "EJB",
+                        "SAS",
+                        "DOM"}
+                );
                 if (c.isChecked()){
                     score=score+1;
                 }
                 qnumber=2;
-                a.setChecked(false);
-                b.setChecked(false);
-                c.setChecked(false);
-                d.setChecked(false);
+                rg.clearCheck();
                 break;
             }
             case 2:
             {
-                tv1.setText("3. Który pakiet związany jest z serwletami ?");
-                a.setText("javax.servlet");
-                b.setText("java.servlet");
-                c.setText("javaee.servlet");
-                d.setText("javae.servlet");
+                setQuestionContent("3. Który pakiet związany jest z serwletami ?",
+                        new String[] {"javax.servlet",
+                        "java.servlet",
+                        "javaee.servlet",
+                        "javae.servlet"}
+                );
                 if (b.isChecked()){
                     score=score+1;
                 }
                 qnumber=3;
-                a.setChecked(false);
-                b.setChecked(false);
-                c.setChecked(false);
-                d.setChecked(false);
+                rg.clearCheck();
                 break;
             }
             case 3:
             {
-                tv1.setText("4. Który pakiet związany jest z platformą Android ?");
-                a.setText("javax.android");
-                b.setText("java.android");
-                c.setText("android.java");
-                d.setText("android.app");
+                setQuestionContent("4. Który pakiet związany jest z platformą Android ?",
+                        new String[] {"javax.android",
+                        "java.android",
+                        "android.java",
+                        "android.app",
+                        "javaee.android"}
+                );
                 if (a.isChecked()){ score=score+1; }
                 qnumber=4;
-                a.setChecked(false);
-                b.setChecked(false);
-                c.setChecked(false);
-                d.setChecked(false);
+                rg.clearCheck();
                 break;
             }
-
-
-
             case 4:
             {
-                tv1.setText("5. Która technologia jest bezpośrednio związana z obsługą transakcji ?");
-                a.setText("JDBC");
-                b.setText("EJB");
-                c.setText("JTA");
-                d.setText("JPA");
+                setQuestionContent("5. Która technologia jest bezpośrednio związana z obsługą transakcji ?",
+                        new String[] {"JDBC",
+                        "EJB",
+                        "JTA",
+                        "JPA",
+                        "FXML",
+                        "JSP"}
+                );
                 if (d.isChecked()){
                     score=score+1;
                 }
                 qnumber=5;
-                a.setChecked(false);
-                b.setChecked(false);
-                c.setChecked(false);
-                d.setChecked(false);
-                btn.setText("Finish");
+                rg.clearCheck();
                 break;
             }
             case 5:
+            {
+                setQuestionContent("6. Czy w języku Java istnieją wyrażenia lambda ?",
+                        new String[] {"Tak",
+                        "Nie"}
+                );
+                if (c.isChecked()){
+                    score=score+1;
+                }
+                qnumber=6;
+                rg.clearCheck();
+                break;
+            }
+            case 6:
+            {
+                setQuestionContent("7. W wyniku kompilacji kodu otrymano pliki MyClass$1.class i MyClass$2.\nPliki te zostały wygenerowane, ponieważ:",
+                        new String[] {"Istnieją dwie klasy: MyClass$1 i MyClass$2",
+                        "Klasa MyClass zawiera dwie klasy wewnętrzne o nazwach 1 i 2",
+                        "Klasa MyClass zawiera dwie anonimowe klasy wewnętrzne"}
+                );
+                if (a.isChecked()){ score=score+1; }
+                qnumber=7;
+                //uncheckAll();
+                rg.clearCheck();
+                btn.setText("Finish");
+                break;
+            }
+            case 7:
             {
                 a.setEnabled(false);
                 b.setEnabled(false);
                 c.setEnabled(false);
                 d.setEnabled(false);
+                e.setEnabled(false);
+                f.setEnabled(false);
+                //uncheckAll();
                 rg.clearCheck();
                 if (c.isChecked()){
                     score=score+1;
                 }
                 tv1.setText("");
-                tv2.setText("Wynik testu: " + score + "/5");
+                tv2.setText("Wynik testu: " + score + "/7");
                 btn.setText("Restart");
                 qnumber=0;
                 break;
@@ -188,24 +248,3 @@ public class QuizActivity extends Activity {
         }
     }
 }
-
-/*    @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        TextView tv=new TextView(this);
-        tv.setText("Second activity");
-        setContentView(R.layout.activity_quiz);
-        Bundle extras = getIntent().getExtras();
-        String value1 = extras.getString("Value1");
-        String value2 = extras.getString("Value2");
-        Toast.makeText(getApplicationContext(),"Value 1: "+ value1 +
-                "\nValue 2: " + value2, LENGTH_LONG).show();
-        Button button1=(Button)findViewById(R.id.Button01);
-        button1.setOnClickListener(new OnClickListener(){
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-}*/
