@@ -7,36 +7,50 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
 import static android.widget.Toast.LENGTH_LONG;
 public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //go to quiz
         Button button1=(Button)findViewById(R.id.Button01);
         button1.setOnClickListener(new OnClickListener(){
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
-                //intent.putExtra("Value1", "Java");
-                //intent.putExtra("Value2", "Android");
                 startActivity(intent);
             }
         });
 
+        //go to imgviewer
         Button button2=(Button)findViewById(R.id.Button02);
         button2.setOnClickListener(new OnClickListener(){
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ImgViewerActivity.class);
-                intent.putExtra("Value1", "Java");
-                intent.putExtra("Value2", "Android");
+                startActivity(intent);
+            }
+        });
+
+        //web select website / go to website
+        Spinner selectWebsite = (Spinner) findViewById(R.id.SelectWebsite);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.websites_selection,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        selectWebsite.setAdapter(adapter);
+
+        Button button3=(Button)findViewById(R.id.Button03);
+        button3.setOnClickListener(new OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), WebActivity.class);
+                intent.putExtra("URL", selectWebsite.getSelectedItem().toString());
                 startActivity(intent);
             }
         });

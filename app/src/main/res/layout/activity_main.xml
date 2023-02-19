@@ -3,16 +3,16 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".MainActivity">
+                tools:context="mstopyra.egzamin.MainActivity">
     <Button
             android:id="@+id/Button01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="124dp"
+            android:layout_marginTop="120dp"
             android:onClick="onClick"
-            android:text="Quiz activity" />
+            android:text="Quiz" />
     <Button
         android:id="@+id/Button02"
         android:layout_width="wrap_content"
@@ -21,15 +21,57 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
         android:onClick="onClick"
-        android:text="ImageViewer activity" />
-    <TextView
-            android:id="@+id/TextView01"
+        android:text="Przeglądarka obrazów" />
+
+    <RelativeLayout
+        android:id="@+id/WebButtonAndSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="240dp">
+        <Button
+            android:id="@+id/Button03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp"
-            android:minHeight="60dip"
-            android:text="Menu Główne"
-            android:textSize="20sp" />
+            android:layout_alignParentLeft="true"
+            android:onClick="onClick"
+            android:text="Strona internetowa" />
+        <Spinner
+            android:id="@+id/SelectWebsite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Button03"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:minHeight="60dip"
+        android:text="Projekt Egzaminacyjny Java"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:minHeight="60dip"
+        android:text="Menu Główne"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:minHeight="60dip"
+        android:text="Marian Stopyra, 3EF/S-DI"
+        android:textSize="16sp" />
 </RelativeLayout>
